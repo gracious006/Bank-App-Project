@@ -1,0 +1,38 @@
+from Main_Account import MainAccount
+
+
+class ChildrensAccount(MainAccount):
+    def _init_(self, initial_amount):
+        super()._init_(initial_amount)
+        self.interest_rate = 0.007
+        self.withdrawal_limit = 0
+
+    def deposit(self, amount):
+        interest = amount * self.interest_rate
+        self._balance += amount + interest
+        print(f"Deposited {amount} with {interest} interest. New balance: {self._balance}")
+
+    def withdraw(self, amount):
+        print("Withdrawals are not permitted for Children's Account.")
+
+
+def main():
+    children_account = ChildrensAccount(10000)
+    children_account.display_account_balance()
+
+    while True:
+        action = input("Would you like to 'deposit' or 'withdraw'? (Type 'exit' to quit): ").lower()
+
+        if action == 'deposit':
+            amount = float(input("Enter deposit amount: "))
+            children_account.deposit(amount)
+        elif action == 'withdraw':
+            print("Withdrawals are not permitted for Children's Account.")
+        elif action == 'exit':
+            break
+        else:
+            print("Invalid action. Please try again.")
+
+
+if _name_ == "_main_":
+    main()
