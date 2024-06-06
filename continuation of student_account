@@ -1,0 +1,20 @@
+def perform_operation(self):
+        while True:
+            operation = int(input("choose an operation: \n1,. withrawal\n2. Deposit\n3."
+                                   "check Balance\n4. Exit\n Enter your choice: "))
+                                 
+            if operation == 1:
+                amount = float(input("enter the amount to deposite:"))
+                self.deposit(amount)
+            elif operation == 2:
+                amount = float(input("Enter the amount to deposit:"))
+                self.display_account_balance()
+            elif operation == 4:
+                print("Exiting the program")
+                break
+            else:
+                print("invalid choice. please choose a valid option")
+                
+
+Student_account = StudentAccount(1000000)
+Student_account.perform_operation()
