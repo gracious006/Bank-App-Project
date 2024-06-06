@@ -1,0 +1,23 @@
+from Main_Account import MainAccount
+
+
+class SavingsAccount(MainAccount):
+    def _init_(self, initial_amount):
+        super()._init_(initial_amount)
+        self.__interest_rate = 0.005
+        self.withdrawal_limit = 700000
+
+    def deposit(self, amount):
+        interest = amount * self.__interest_rate
+        self._balance += amount + interest
+        print(f"Deposited {amount} with {interest} interest. New balance: {self._balance}")
+
+    def withdraw(self, amount):
+        if amount > self.withdrawal_limit:
+            print(f"Withdrawal amount exceeded the limit of {self.withdrawal_limit}.")
+        elif amount > self.balance:
+            print("Insufficient funds.")
+        else:
+            self.balance -= amount
+            print(f"Withdrew {amount}. New balance is: {self._balance}")
+
