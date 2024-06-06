@@ -1,0 +1,20 @@
+def main():
+    savings_account = SavingsAccount(10000000)
+    savings_account.display_account_balance()
+
+    while True:
+        action = input("Would you like to 'deposit' or 'withdraw'? (Type 'exit' to quit): ").lower()
+
+        if action == 'deposit':
+            amount = float(input("Enter the amount to deposit: "))
+            savings_account.deposit(amount)
+        elif action == 'withdraw':
+            amount = float(input("Enter the amount to withdraw: "))
+            savings_account.withdraw(amount)
+        elif action == 'exit':
+            break
+        else:
+            print("Invalid action. Please try again.")
+
+        savings_account.display_account_balance()
+
