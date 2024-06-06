@@ -1,0 +1,22 @@
+from Main_Account import MainAccount
+
+class StudentAccount (MainAccount):
+    def _init_(self, initial_amount):
+          super()._init_(initial_amount)
+          
+          self.withdrawal_limit = 2000
+          self.deposite_limit = 50000
+          
+    def withdrawal(self,amount):
+            if  amount >self.withdrawal_limit:
+                print("withrawal limit exceeded")  
+            else:
+                self._balance -= amount
+                print(f'deposite successful. New balance:{self._balance}')   
+
+    def deposite (self,amount):
+        if amount > self.deposite_limit:
+            print("deposite limit exceeded") 
+        else:
+            self._balance += amount
+            print(f'deposite successful. Nex balance: {self._balance}')
